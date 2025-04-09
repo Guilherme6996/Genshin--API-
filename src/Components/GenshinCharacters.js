@@ -1,11 +1,11 @@
-// Importa os hooks useState e useEffect do React
+// Importa os hooks useState e useEffect da biblioteca React
 import React, { useState, useEffect } from 'react';
-// Importa a biblioteca Axios para fazer requisições HTTP
+// Importa a biblioteca Axios para realizar requisições HTTP
 import axios from 'axios';
 // Importa o arquivo CSS para estilização do componente
 import '../styles/GenshinCharacters.css';
 
-// Mapeia os nomes dos personagens (em letras minúsculas) para os caminhos das imagens correspondentes
+// Cria um objeto que mapeia nomes de personagens (em letras minúsculas) aos caminhos das imagens locais
 const imageMap = {
   arlecchino: '/images/arlecchino.png',
   diluc: '/images/diluc.png',
@@ -51,53 +51,64 @@ const imageMap = {
   shenhe: '/images/shenhe.png',
 };
 
-// Componente principal
+// Declaração do componente funcional GenshinCharacters
 const GenshinCharacters = () => {
-  // Estado para armazenar os personagens carregados do JSON
+  // Estado para armazenar os personagens obtidos do JSON
   const [characters, setCharacters] = useState([]);
-  // Estado para controlar a barra de pesquisa
+  // Estado que armazena o texto digitado na busca
   const [search, setSearch] = useState('');
-  // Estado para controlar o filtro por elemento
+  // Estado que armazena o elemento selecionado no filtro (Pyro, Hydro, etc)
   const [selectedElement, setSelectedElement] = useState('');
 
-  // useEffect é executado uma vez ao montar o componente, carregando os dados do arquivo JSON
+  // Hook useEffect que é executado quando o componente é montado
   useEffect(() => {
-    axios.get('/data/characters.json') // Caminho do JSON com os dados dos personagens
+    // Faz uma requisição GET para buscar os dados do JSON de personagens
+    axios.get('/data/characters.json')
       .then(response => {
-        setCharacters(response.data); // Salva os dados no estado
+        // Atualiza o estado com os dados retornados
+        setCharacters(response.data);
       })
       .catch(error => {
-        console.error('Erro ao buscar os personagens:', error); // Exibe erro no console, caso ocorra
+        // Em caso de erro na requisição, exibe no console
+        console.error('Erro ao buscar os personagens:', error);
       });
-  }, []);
+  }, []); // Array vazio garante que o efeito será executado apenas uma vez
 
-  // Filtra os personagens com base na busca e no elemento selecionado
+  // Filtra os personagens com base na busca e no filtro de elemento
   const filteredCharacters = characters
     .filter(character =>
+      // Verifica se o nome do personagem inclui o texto da busca (case insensitive)
       character.name.toLowerCase().includes(search.toLowerCase()) &&
+      // Verifica se o elemento corresponde ao filtro (ou se o filtro está vazio)
       (selectedElement === '' || character.element.toLowerCase() === selectedElement.toLowerCase())
     )
-    .sort((a, b) => a.name.localeCompare(b.name)); // Ordena os personagens por nome
+    // Ordena os personagens em ordem alfabética pelo nome
+    .sort((a, b) => a.name.localeCompare(b.name));
 
-  // JSX que será renderizado na tela
+  // Retorna o JSX (estrutura visual) do componente
   return (
     <div className="container">
+      {/* Título principal */}
       <h1>Veja seus personagens favoritos</h1>
 
-      {/* Filtros de busca */}
+      {/* Seção de filtros */}
       <div className="filters">
+        {/* Campo de busca por nome */}
         <input
           type="text"
           placeholder="Pesquisar personagem..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={search} // Valor atual do input
+          onChange={(e) => setSearch(e.target.value)} // Atualiza o estado ao digitar
           className="search-bar"
         />
+
+        {/* Select dropdown para filtrar por elemento */}
         <select
-          value={selectedElement}
-          onChange={(e) => setSelectedElement(e.target.value)}
+          value={selectedElement} // Valor selecionado
+          onChange={(e) => setSelectedElement(e.target.value)} // Atualiza o estado ao mudar opção
           className="element-filter"
         >
+          {/* Opções do filtro de elementos */}
           <option value="">Todos os Elementos</option>
           <option value="pyro">Pyro</option>
           <option value="hydro">Hydro</option>
@@ -109,31 +120,37 @@ const GenshinCharacters = () => {
         </select>
       </div>
 
-      {/* Lista de personagens filtrados */}
+      {/* Lista dos personagens filtrados */}
       <div className="character-list">
+        {/* Verifica se há personagens para exibir */}
         {filteredCharacters.length > 0 ? (
+          // Mapeia os personagens filtrados para renderizar os cartões
           filteredCharacters.map((character) => (
             <div
-              key={character.name}
-              className={`character-card ${character.element?.toLowerCase()}`} // Classe dinâmica com base no elemento
+              key={character.name} // Usa o nome como chave única
+              className={`character-card ${character.element?.toLowerCase()}`} // Aplica classe com o nome do elemento (para estilização)
             >
+              {/* Imagem do personagem - tenta usar imagem local, senão usa a do JSON */}
               <img
-                src={imageMap[character.name.toLowerCase()] || character.image} // Usa imagem mapeada ou a imagem do JSON
+                src={imageMap[character.name.toLowerCase()] || character.image}
                 alt={character.name}
                 className="character-image"
               />
+              {/* Nome do personagem */}
               <h2>{character.name}</h2>
+              {/* Exibe o elemento e o tipo de arma */}
               <p>Elemento: {character.element}</p>
               <p>Tipo de Arma: {character.weapon}</p>
             </div>
           ))
         ) : (
-          <p>Nenhum personagem encontrado.</p> // Caso nenhum personagem atenda aos filtros
+          // Caso nenhum personagem seja encontrado
+          <p>Nenhum personagem encontrado.</p>
         )}
       </div>
     </div>
   );
 };
 
-// Exporta o componente para ser utilizado em outros lugares da aplicação
+// Exporta o componente para ser utilizado em outros arquivos da aplicação
 export default GenshinCharacters;
