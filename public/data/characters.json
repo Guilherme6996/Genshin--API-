@@ -1,0 +1,249 @@
+[
+    {
+      "name": "Arlecchino",
+      "element": "Pyro",
+      "weapon": "Lança",
+      "image": "public/images/arlecchino.png"
+    },
+    {
+      "name": "Diluc",
+      "element": "Pyro",
+      "weapon": "Espada",
+      "image": "public/images/diluc.png"
+    },
+    {
+      "name": "Hutao",
+      "element": "Pyro",
+      "weapon": "Lança",
+      "image": "public/images/hutao.png"
+    },
+    {
+      "name": "Klee",
+      "element": "Pyro",
+      "weapon": "Catalisadora",
+      "image": "public/images/klee.png"
+    },
+    {
+      "name": "Xiangling",
+      "element": "Pyro",
+      "weapon": "Lança",
+      "image": "public/images/xiangling.png"
+    },
+    {
+      "name": "Wriothesley",
+      "element": "Cryo",
+      "weapon": "Catalisadora",
+      "image": "public/images/wriothesley.png"
+    },
+    {
+      "name": "Ganyu",
+      "element": "Cryo",
+      "weapon": "Arco",
+      "image": "public/images/ganyu.png"
+    },
+    {
+      "name": "Charlotte",
+      "element": "Cryo",
+      "weapon": "Catalisadora",
+      "image": "public/images/charlotte.png"
+    },
+    {
+      "name": "Chongyun",
+      "element": "Cryo",
+      "weapon": "Espadão",
+      "image": "public/images/chongyun.png"
+    },
+    {
+      "name": "Rosaria",
+      "element": "Cryo",
+      "weapon": "Lança",
+      "image": "public/images/rosaria.png"
+    },
+    {
+      "name": "Yae Miko",
+      "element": "Electro",
+      "weapon": "Catalisadora",
+      "image": "public/images/yaemiko.png"
+    },
+    {
+      "name": "Fischl",
+      "element": "Electro",
+      "weapon": "Arco",
+      "image": "public/images/fischl.png"
+    },
+    {
+      "name": "Lisa",
+      "element": "Electro",
+      "weapon": "Catalisadora",
+      "image": "public/images/lisa.png"
+    },
+    {
+      "name": "Raiden Shogun",
+      "element": "Electro",
+      "weapon": "Lança",
+      "image": "public/images/raidenshogun.png"
+    },
+    {
+      "name": "Clorinde",
+      "element": "Electro",
+      "weapon": "Espada",
+      "image": "public/images/clorinde.png"
+    },
+    {
+      "name": "Venti",
+      "element": "Anemo",
+      "weapon": "Arco",
+      "image": "public/images/venti.png"
+    },
+    {
+      "name": "Lynette",
+      "element": "Anemo",
+      "weapon": "Espada",
+      "image": "public/images/lynette.png"
+    },
+    {
+      "name": "Faruzan",
+      "element": "Anemo",
+      "weapon": "Arco",
+      "image": "public/images/faruzan.png"
+    },
+    {
+      "name": "Jean",
+      "element": "Anemo",
+      "weapon": "Espada",
+      "image": "public/images/jean.png"
+    },
+    {
+      "name": "Wanderer",
+      "element": "Anemo",
+      "weapon": "Catalisadora",
+      "image": "public/images/wanderer.png"
+    },
+    {
+      "name": "Barbara",
+      "element": "Hydro",
+      "weapon": "Catalisadora",
+      "image": "public/images/barbara.png"
+    },
+    {
+      "name": "Mualani",
+      "element": "Hydro",
+      "weapon": "Espada",
+      "image": "public/images/mualani.png"
+    },
+    {
+      "name": "Furina",
+      "element": "Hydro",
+      "weapon": "Espada",
+      "image": "public/images/furina.png"
+    },
+    {
+      "name": "Xingqiu",
+      "element": "Hydro",
+      "weapon": "Espada",
+      "image": "public/images/xingqiu.png"
+    },
+    {
+      "name": "Neuvillette",
+      "element": "Hydro",
+      "weapon": "Catalisadora",
+      "image": "public/images/neuvillette.png"
+    },
+    {
+      "name": "Kinich",
+      "element": "Dendro",
+      "weapon": "Catalisadora",
+      "image": "public/images/kinich.png"
+    },
+    {
+      "name": "Kirara",
+      "element": "Dendro",
+      "weapon": "Espada",
+      "image": "public/images/kirara.png"
+    },
+    {
+      "name": "Collei",
+      "element": "Dendro",
+      "weapon": "Arco",
+      "image": "public/images/collei.png"
+    },
+    {
+      "name": "Yaoyao",
+      "element": "Dendro",
+      "weapon": "Lança",
+      "image": "public/images/yaoyao.png"
+    },
+    {
+      "name": "Tighnari",
+      "element": "Dendro",
+      "weapon": "Arco",
+      "image": "public/images/tighnari.png"
+    },
+    {
+      "name": "Ningguang",
+      "element": "Geo",
+      "weapon": "Catalisadora",
+      "image": "public/images/ningguang.png"
+    },
+    {
+      "name": "Gorou",
+      "element": "Geo",
+      "weapon": "Arco",
+      "image": "public/images/gorou.png"
+    },
+    {
+      "name": "Albedo",
+      "element": "Geo",
+      "weapon": "Espada",
+      "image": "public/images/albedo.png"
+    },
+    {
+      "name": "Zhongli",
+      "element": "Geo",
+      "weapon": "Lança",
+      "image": "public/images/zhongli.png"
+    },
+    {
+      "name": "Yelan",
+      "element": "Hydro",
+      "weapon": "Arco",
+      "image": "public/images/yelan.png"
+    },
+    
+    {
+        "name": "Yoimiya",
+        "element": "Pyro",
+        "weapon": "Arco",
+        "image": "public/images/yoimiya.png"
+      },
+    
+      {
+        "name": "Nahida",
+        "element": "Dendro",
+        "weapon": "Catalisadora",
+        "image": "public/images/nahida.png"
+      },
+    
+      {
+        "name": "Beidou",
+        "element": "Electro",
+        "weapon": "Espadão",
+        "image": "public/images/Beidou.png"
+      },
+
+      {
+        "name": "Kaeya",
+        "element": "Cryo",
+        "weapon": "Espada",
+        "image": "public/images/kaeya.png"
+      },
+
+      {
+        "name": "Shenhe",
+        "element": "Cryo",
+        "weapon": "Lança",
+        "image": "public/images/shenhe.png"
+      }
+    
+    
+  ]

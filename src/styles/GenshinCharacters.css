@@ -1,0 +1,197 @@
+/* Fundo escuro para a página */
+body {
+  background-color: #0a0a23;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container dos personagens */
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Estilo base das cartas */
+.character-card {
+  background-color: #0d1b2a;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.3s;
+  color: #ffffff;
+  border: 3px solid transparent;
+  max-width: 220px;
+  overflow: hidden;
+}
+
+/* Hover nas cartas */
+.character-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Imagens */
+.character-card img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Nome */
+/* Nome do personagem com contorno preto */
+.character-card h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 10px;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+/* Elemento e tipo de arma com contorno preto também */
+.character-card p {
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+/* =================== PYRO =================== */
+.character-card.pyro {
+  position: relative;
+  background: linear-gradient(180deg, #ff4500, #ff8000, #ffb300);
+  color: #fff;
+  animation: fireGlow 1.5s infinite alternate;
+  overflow: hidden;
+  z-index: 0;
+}
+.character-card.pyro::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  z-index: -1;
+  background: conic-gradient(from 0deg, #ff0000, #ff6a00, #ffcc00, #ff6a00, #ff0000);
+  animation: prismFire 3s linear infinite;
+  border-radius: 12px;
+  filter: blur(5px);
+}
+.character-card.pyro::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: inherit;
+  border-radius: 10px;
+  z-index: 1;
+}
+.character-card.pyro > * {
+  position: relative;
+  z-index: 2;
+}
+@keyframes fireGlow {
+  0% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.6); }
+  100% { box-shadow: 0 0 25px rgba(255, 140, 0, 0.8); }
+}
+@keyframes prismFire {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =================== CRYO =================== */
+.character-card.cryo {
+  background: linear-gradient(180deg, #aeefff, #5edfff, #00bbff);
+  color: #002b36;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+}
+
+/* =================== ELECTRO =================== */
+.character-card.electro {
+  background: linear-gradient(180deg, #6f42c1, #8a2be2, #da70d6);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(186, 85, 211, 0.5);
+}
+
+/* =================== ANEMO =================== */
+.character-card.anemo {
+  background: linear-gradient(180deg, #98fb98, #40e0d0, #00fa9a);
+  color: #0a0a0a;
+  box-shadow: 0 0 15px rgba(144, 238, 144, 0.5);
+}
+
+/* =================== HYDRO =================== */
+.character-card.hydro {
+  background: linear-gradient(180deg, #89cff0, #4682b4, #1e90ff);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+}
+
+/* =================== DENDRO =================== */
+.character-card.dendro {
+  background: linear-gradient(180deg, #a8e6cf, #56ab2f, #a8c66c);
+  color: #0a0a0a;
+  box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
+}
+
+/* =================== GEO =================== */
+.character-card.geo {
+  position: relative;
+  background: linear-gradient(180deg, #f5d76e, #e6c200, #b8860b);
+  color: #000;
+  animation: geoGlow 2s infinite alternate;
+  overflow: hidden;
+  z-index: 0;
+}
+.character-card.geo::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  z-index: -1;
+  background: conic-gradient(from 0deg, #fff8dc, #ffd700, #daa520, #ffd700, #fff8dc);
+  animation: prismGeo 6s linear infinite;
+  border-radius: 12px;
+  filter: blur(4px);
+}
+.character-card.geo::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: inherit;
+  border-radius: 10px;
+  z-index: 1;
+}
+.character-card.geo > * {
+  position: relative;
+  z-index: 2;
+}
+@keyframes geoGlow {
+  0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+  100% { box-shadow: 0 0 25px rgba(218, 165, 32, 0.8); }
+}
+@keyframes prismGeo {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =================== Barra de pesquisa =================== */
+.search-bar {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
