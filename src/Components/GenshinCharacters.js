@@ -1,7 +1,11 @@
+// Importa os hooks useState e useEffect do React
 import React, { useState, useEffect } from 'react';
+// Importa a biblioteca Axios para fazer requisições HTTP
 import axios from 'axios';
+// Importa o arquivo CSS para estilização do componente
 import '../styles/GenshinCharacters.css';
 
+// Mapeia os nomes dos personagens (em letras minúsculas) para os caminhos das imagens correspondentes
 const imageMap = {
   arlecchino: '/images/arlecchino.png',
   diluc: '/images/diluc.png',
@@ -47,31 +51,40 @@ const imageMap = {
   shenhe: '/images/shenhe.png',
 };
 
+// Componente principal
 const GenshinCharacters = () => {
+  // Estado para armazenar os personagens carregados do JSON
   const [characters, setCharacters] = useState([]);
+  // Estado para controlar a barra de pesquisa
   const [search, setSearch] = useState('');
+  // Estado para controlar o filtro por elemento
   const [selectedElement, setSelectedElement] = useState('');
 
+  // useEffect é executado uma vez ao montar o componente, carregando os dados do arquivo JSON
   useEffect(() => {
-    axios.get('/data/characters.json')
+    axios.get('/data/characters.json') // Caminho do JSON com os dados dos personagens
       .then(response => {
-        setCharacters(response.data);
+        setCharacters(response.data); // Salva os dados no estado
       })
       .catch(error => {
-        console.error('Erro ao buscar os personagens:', error);
+        console.error('Erro ao buscar os personagens:', error); // Exibe erro no console, caso ocorra
       });
   }, []);
 
+  // Filtra os personagens com base na busca e no elemento selecionado
   const filteredCharacters = characters
     .filter(character =>
       character.name.toLowerCase().includes(search.toLowerCase()) &&
       (selectedElement === '' || character.element.toLowerCase() === selectedElement.toLowerCase())
     )
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name)); // Ordena os personagens por nome
 
+  // JSX que será renderizado na tela
   return (
     <div className="container">
       <h1>Veja seus personagens favoritos</h1>
+
+      {/* Filtros de busca */}
       <div className="filters">
         <input
           type="text"
@@ -95,15 +108,17 @@ const GenshinCharacters = () => {
           <option value="dendro">Dendro</option>
         </select>
       </div>
+
+      {/* Lista de personagens filtrados */}
       <div className="character-list">
         {filteredCharacters.length > 0 ? (
           filteredCharacters.map((character) => (
             <div
               key={character.name}
-              className={`character-card ${character.element?.toLowerCase()}`}
+              className={`character-card ${character.element?.toLowerCase()}`} // Classe dinâmica com base no elemento
             >
               <img
-                src={imageMap[character.name.toLowerCase()] || character.image}
+                src={imageMap[character.name.toLowerCase()] || character.image} // Usa imagem mapeada ou a imagem do JSON
                 alt={character.name}
                 className="character-image"
               />
@@ -113,11 +128,12 @@ const GenshinCharacters = () => {
             </div>
           ))
         ) : (
-          <p>Nenhum personagem encontrado.</p>
+          <p>Nenhum personagem encontrado.</p> // Caso nenhum personagem atenda aos filtros
         )}
       </div>
     </div>
   );
 };
 
+// Exporta o componente para ser utilizado em outros lugares da aplicação
 export default GenshinCharacters;
